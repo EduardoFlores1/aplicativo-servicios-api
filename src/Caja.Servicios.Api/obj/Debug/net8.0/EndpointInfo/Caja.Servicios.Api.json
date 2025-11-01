@@ -1,0 +1,329 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Caja.Servicios.Api",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/v1/solicitudes/actualizar-solicitud": {
+      "patch": {
+        "tags": [
+          "ActualizarSolicitud"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarSolicitudRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarSolicitudRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarSolicitudRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/solicitudes/eliminar-solicitud": {
+      "delete": {
+        "tags": [
+          "EliminarSolicitud"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EliminarSolicitudRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EliminarSolicitudRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EliminarSolicitudRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/solicitudes/eliminadas": {
+      "get": {
+        "tags": [
+          "ListarSolicitudesEliminadas"
+        ],
+        "parameters": [
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListarSolicitudesEliminadasResponsePaginadoResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListarSolicitudesEliminadasResponsePaginadoResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListarSolicitudesEliminadasResponsePaginadoResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/obtener-usuario-por-email": {
+      "get": {
+        "tags": [
+          "ObtenerUsuarioPorEmail"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/solicitudes/registrar-solicitud": {
+      "post": {
+        "tags": [
+          "RegistrarSolicitud"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistrarSolicitudRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistrarSolicitudRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistrarSolicitudRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/registrar-usuario": {
+      "post": {
+        "tags": [
+          "RegistrarUsuario"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistrarUsuarioRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistrarUsuarioRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistrarUsuarioRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ActualizarSolicitudRequest": {
+        "type": "object",
+        "properties": {
+          "publicID": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "detalleSolicitud": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EliminarSolicitudRequest": {
+        "type": "object",
+        "properties": {
+          "publicSolicitudID": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "publicUsuarioEliminaID": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "motivoEliminacion": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListarSolicitudesEliminadasResponse": {
+        "type": "object",
+        "properties": {
+          "publicSolicitudID": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "publicUsuarioSolicitanteID": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "publicUsuarioEliminacionID": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "detalleSolicitud": {
+            "type": "string",
+            "nullable": true
+          },
+          "motivoEliminacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "deletedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListarSolicitudesEliminadasResponsePaginadoResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListarSolicitudesEliminadasResponse"
+            },
+            "nullable": true
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegistrarSolicitudRequest": {
+        "type": "object",
+        "properties": {
+          "publicUsuarioID": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "detalleSolicitud": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegistrarUsuarioRequest": {
+        "type": "object",
+        "properties": {
+          "nombres": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

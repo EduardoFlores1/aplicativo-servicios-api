@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "W5uii4fjs4A=",
+  "dgSpecHash": "HcAaPQdNSrw=",
   "success": true,
   "projectFilePath": "C:\\Users\\Eduardo Flores\\Documents\\Proyectos backend\\Prueba Tecnica\\Caja.Solicitudes\\src\\Caja.Servicios.Application\\Caja.Servicios.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Eduardo Flores\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Eduardo Flores\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Eduardo Flores\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\Eduardo Flores\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",

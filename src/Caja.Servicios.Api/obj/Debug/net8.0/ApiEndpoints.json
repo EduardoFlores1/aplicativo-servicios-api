@@ -1,0 +1,113 @@
+[
+  {
+    "ContainingType": "Caja.Servicios.Api.Controllers.Auth.ObtenerUsuarioPorEmailController",
+    "Method": "ObtenerUsuario",
+    "RelativePath": "api/v1/auth/obtener-usuario-por-email",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Caja.Servicios.Api.Controllers.Auth.RegistrarUsuarioController",
+    "Method": "RegistrarUsuario",
+    "RelativePath": "api/v1/auth/registrar-usuario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Caja.Servicios.Application.DataBase.Auth.Commands.RegistrarUsuario.RegistrarUsuarioRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Caja.Servicios.Api.Controllers.Solicitud.ActualizarSolicitudController",
+    "Method": "ActualizarSolicitud",
+    "RelativePath": "api/v1/solicitudes/actualizar-solicitud",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Caja.Servicios.Application.DataBase.Solicitud.Commands.ActualizarSolicitud.ActualizarSolicitudRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Caja.Servicios.Api.Controllers.Solicitud.ListarSolicitudesEliminadasController",
+    "Method": "ListarEliminadas",
+    "RelativePath": "api/v1/solicitudes/eliminadas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Caja.Servicios.Domain.Models.Paginacion.PaginadoResponse\u00601[[Caja.Servicios.Application.DataBase.Solicitud.Queries.ListarSolicitudesEliminadas.ListarSolicitudesEliminadasResponse, Caja.Servicios.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Caja.Servicios.Api.Controllers.Solicitud.EliminarSolicitudController",
+    "Method": "EliminarSolicitud",
+    "RelativePath": "api/v1/solicitudes/eliminar-solicitud",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Caja.Servicios.Application.DataBase.Solicitud.Commands.EliminarSolicitud.EliminarSolicitudRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Caja.Servicios.Api.Controllers.Solicitud.RegistrarSolicitudController",
+    "Method": "RegistrarSolicitud",
+    "RelativePath": "api/v1/solicitudes/registrar-solicitud",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Caja.Servicios.Application.DataBase.Solicitud.Commands.RegistrarSolicitud.RegistrarSolicitudRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

@@ -7,16 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.10" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Caja.Servicios.Domain\Caja.Servicios.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="DataBase\Solicitud\" />
-    <Folder Include="DataBase\Usuario\" />
   </ItemGroup>
 
 </Project>

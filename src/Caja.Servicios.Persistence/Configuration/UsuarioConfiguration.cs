@@ -10,7 +10,10 @@ namespace Caja.Servicios.Persistence.Configuration
         {
             entityBuilder.ToTable("Usuarios");
             entityBuilder.HasKey(u => u.UsuarioID);
-            entityBuilder.Property(u => u.PublicID).IsRequired();
+
+            entityBuilder.Property(u => u.PublicID).IsRequired().HasDefaultValueSql("NEWSEQUENTIALID()");
+            entityBuilder.Property(u => u.PublicID).ValueGeneratedOnAdd();
+            
             entityBuilder.Property(u => u.Nombres).IsRequired().HasMaxLength(50);
             entityBuilder.Property(u => u.Email).IsRequired().HasMaxLength(255);
             entityBuilder.HasIndex(u => u.Email).IsUnique();

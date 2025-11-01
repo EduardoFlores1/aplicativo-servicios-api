@@ -10,7 +10,10 @@ namespace Caja.Servicios.Persistence.Configuration
         {
             entityBuilder.ToTable("Solicitudes");
             entityBuilder.HasKey(s => s.SolicitudID);
-            entityBuilder.Property(s => s.PublicID).IsRequired();
+
+            entityBuilder.Property(s => s.PublicID).IsRequired().HasDefaultValueSql("NEWSEQUENTIALID()");
+            entityBuilder.Property(s => s.PublicID).ValueGeneratedOnAdd();
+
             entityBuilder.Property(s => s.UsuarioID).IsRequired();
             entityBuilder.Property(s => s.DetalleSolicitud).IsRequired().HasMaxLength(255);
             entityBuilder.Property(s => s.CreatedAt).IsRequired();
