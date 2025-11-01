@@ -12,11 +12,13 @@ namespace Caja.Servicios.Application.DataBase.Auth.Commands.RegistrarUsuario
 
         public async Task<RegistrarUsuarioResponse> ExecuteAsync(RegistrarUsuarioRequest request) {
 
+            var passwordhash = BCrypt.Net.BCrypt.HashPassword(request.Password);
+
             var nuevoUsuario = new UsuarioEntity
             {
                 Nombres = request.Nombres,
                 Email = request.Email,
-                Password = request.Password
+                Password = passwordhash
             };
 
             await _dataBaseService.Usuarios.AddAsync(nuevoUsuario);

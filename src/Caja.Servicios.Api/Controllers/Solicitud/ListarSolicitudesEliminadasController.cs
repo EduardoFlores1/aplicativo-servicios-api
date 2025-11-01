@@ -1,9 +1,11 @@
 ﻿using Caja.Servicios.Application.DataBase.Solicitud.Queries.ListarSolicitudesEliminadas;
 using Caja.Servicios.Domain.Models.Paginacion;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Caja.Servicios.Api.Controllers.Solicitud
 {
+    
     [Route("api/v1/solicitudes")]
     [ApiController]
     public class ListarSolicitudesEliminadasController : ControllerBase
@@ -14,8 +16,9 @@ namespace Caja.Servicios.Api.Controllers.Solicitud
             this.listarSolicitudesEliminadasQuery = listarSolicitudesEliminadasQuery;
         }
 
+        [Authorize]
         [HttpGet("eliminadas")]
-        public async Task<ActionResult<PaginadoResponse<ListarSolicitudesEliminadasResponse>>> ListarEliminadas(
+        public async Task<IActionResult> ListarEliminadas(
             [FromQuery] PaginacionParams paginacionParams) { 
             
             var data = await listarSolicitudesEliminadasQuery.ExecuteAsync(paginacionParams);

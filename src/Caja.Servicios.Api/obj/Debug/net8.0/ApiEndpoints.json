@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "Caja.Servicios.Api.Controllers.Auth.LoguearUsuarioController",
+    "Method": "LoguearUsuario",
+    "RelativePath": "api/v1/auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Caja.Servicios.Application.DataBase.Auth.Commands.LoguearUsuario.LoguearUsuarioRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Caja.Servicios.Api.Controllers.Auth.ObtenerUsuarioPorEmailController",
     "Method": "ObtenerUsuario",
     "RelativePath": "api/v1/auth/obtener-usuario-por-email",
@@ -66,17 +82,7 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Caja.Servicios.Domain.Models.Paginacion.PaginadoResponse\u00601[[Caja.Servicios.Application.DataBase.Solicitud.Queries.ListarSolicitudesEliminadas.ListarSolicitudesEliminadasResponse, Caja.Servicios.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Caja.Servicios.Api.Controllers.Solicitud.EliminarSolicitudController",

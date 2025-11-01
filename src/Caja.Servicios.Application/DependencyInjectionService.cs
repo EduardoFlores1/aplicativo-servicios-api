@@ -1,18 +1,23 @@
 ﻿using AutoMapper;
 using Caja.Servicios.Application.Configuration;
+using Caja.Servicios.Application.DataBase.Auth.Commands.LoguearUsuario;
 using Caja.Servicios.Application.DataBase.Auth.Commands.RegistrarUsuario;
 using Caja.Servicios.Application.DataBase.Auth.Queries.ObtenerUsuarioPorEmail;
 using Caja.Servicios.Application.DataBase.Solicitud.Commands.ActualizarSolicitud;
 using Caja.Servicios.Application.DataBase.Solicitud.Commands.EliminarSolicitud;
 using Caja.Servicios.Application.DataBase.Solicitud.Commands.RegistrarSolicitud;
 using Caja.Servicios.Application.DataBase.Solicitud.Queries.ListarSolicitudesEliminadas;
+using Caja.Servicios.Application.Features;
+using Caja.Servicios.Domain.Models.Jwt;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Caja.Servicios.Application
 {
     public static class DependencyInjectionService
     {
-        public static IServiceCollection AddAplication(this IServiceCollection services) {
+        public static IServiceCollection AddAplication(
+            this IServiceCollection services) {
 
             var mapper = new MapperConfiguration(config =>
             {
@@ -29,6 +34,13 @@ namespace Caja.Servicios.Application
             services.AddTransient<IEliminarSolicitudCommand, EliminarSolicitudCommand>();
             services.AddTransient<IListarSolicitudesEliminadasQuery, ListarSolicitudesEliminadasQuery>();
 
+            //auth
+
+            
+
+            services.AddScoped<IJwtService, JwtService>();
+
+            services.AddTransient<ILoguearUsuarioCommand, LoguearUsuarioCommand>();
 
             return services;
         }

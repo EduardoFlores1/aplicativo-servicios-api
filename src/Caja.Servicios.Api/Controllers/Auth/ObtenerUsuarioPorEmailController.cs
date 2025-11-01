@@ -1,4 +1,5 @@
 ﻿using Caja.Servicios.Application.DataBase.Auth.Queries.ObtenerUsuarioPorEmail;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Caja.Servicios.Api.Controllers.Auth
@@ -13,6 +14,7 @@ namespace Caja.Servicios.Api.Controllers.Auth
             _obtenerUsuarioPorEmailQuery = obtenerUsuarioPorEmailQuery;
         }
 
+        [Authorize]
         [HttpGet("obtener-usuario-por-email")]
         public async Task<IActionResult> ObtenerUsuario(
             [FromQuery] string email)

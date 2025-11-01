@@ -1,8 +1,10 @@
 ﻿using Caja.Servicios.Application.DataBase.Solicitud.Commands.RegistrarSolicitud;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Caja.Servicios.Api.Controllers.Solicitud
 {
+    
     [Route("api/v1/solicitudes")]
     [ApiController]
     public class RegistrarSolicitudController : ControllerBase
@@ -13,6 +15,7 @@ namespace Caja.Servicios.Api.Controllers.Solicitud
             _registrarSolicitudCommand = registrarSolicitudCommand;
         }
 
+        [Authorize]
         [HttpPost("registrar-solicitud")]
         public async Task<IActionResult> RegistrarSolicitud(
             [FromBody] RegistrarSolicitudRequest request)

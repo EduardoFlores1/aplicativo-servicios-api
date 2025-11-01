@@ -92,24 +92,38 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListarSolicitudesEliminadasResponsePaginadoResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListarSolicitudesEliminadasResponsePaginadoResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListarSolicitudesEliminadasResponsePaginadoResponse"
-                }
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/login": {
+      "post": {
+        "tags": [
+          "LoguearUsuario"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoguearUsuarioRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoguearUsuarioRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoguearUsuarioRequest"
               }
             }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -232,62 +246,16 @@
         },
         "additionalProperties": false
       },
-      "ListarSolicitudesEliminadasResponse": {
+      "LoguearUsuarioRequest": {
         "type": "object",
         "properties": {
-          "publicSolicitudID": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "publicUsuarioSolicitanteID": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "publicUsuarioEliminacionID": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "detalleSolicitud": {
+          "email": {
             "type": "string",
             "nullable": true
           },
-          "motivoEliminacion": {
+          "password": {
             "type": "string",
             "nullable": true
-          },
-          "deletedAt": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ListarSolicitudesEliminadasResponsePaginadoResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ListarSolicitudesEliminadasResponse"
-            },
-            "nullable": true
-          },
-          "pageNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "totalRecords": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "totalPages": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
           }
         },
         "additionalProperties": false

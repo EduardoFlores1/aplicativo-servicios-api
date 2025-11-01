@@ -1,8 +1,10 @@
 ﻿using Caja.Servicios.Application.DataBase.Solicitud.Commands.EliminarSolicitud;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Caja.Servicios.Api.Controllers.Solicitud
 {
+    
     [Route("api/v1/solicitudes")]
     [ApiController]
     public class EliminarSolicitudController : ControllerBase
@@ -13,6 +15,7 @@ namespace Caja.Servicios.Api.Controllers.Solicitud
             _eliminarSolicitudCommand = eliminarSolicitudCommand;   
         }
 
+        [Authorize]
         [HttpDelete("eliminar-solicitud")]
         public async Task<IActionResult> EliminarSolicitud(
             [FromBody] EliminarSolicitudRequest request) { 
