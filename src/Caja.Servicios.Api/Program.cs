@@ -1,32 +1,47 @@
+using Caja.Servicios.Api;
+using Caja.Servicios.Application;
+using Caja.Servicios.Domain.Models.Jwt;
+using Caja.Servicios.Persistence;
+using Scalar.AspNetCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.Configure<JwtSettings>(
+                builder.Configuration.GetSection(JwtSettings.Seccion)
+            );
+
+//injeccion
+builder.Services
+    .AddWebApi()
+    .AddAplication()
+    .AddPersistence(builder.Configuration);
+
+builder.Services.AddControllers();
+
+// scalar
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// auth jwt
+builder.Services.AddAutenticationPersonalizado(builder.Configuration);
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+app.MapControllers();
 
-var summaries = new[]
+if (app.Environment.IsDevelopment())
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+    
+    app.MapSwagger("/openapi/{documentName}.json");
+    app.MapScalarApiReference();
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-});
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.Run();
 
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
