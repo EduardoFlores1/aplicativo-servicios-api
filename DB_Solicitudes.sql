@@ -1,0 +1,37 @@
+USE DB_Solicitudes;
+
+CREATE TABLE [Usuarios](	
+	UsuarioID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	PublicID UNIQUEIDENTIFIER NOT NULL DEFAULT NEWSEQUENTIALID(),
+	Nombres NVARCHAR(50) NOT NULL,
+	Email NVARCHAR(255) NOT NULL UNIQUE,
+	Password NVARCHAR(512) NOT NULL
+);
+
+CREATE TABLE [Solicitudes](
+	SolicitudID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	PublicID UNIQUEIDENTIFIER NOT NULL DEFAULT NEWSEQUENTIALID(),
+	UsuarioID INT NOT NULL,
+	DetalleSolicitud NVARCHAR(255) NOT NULL,
+	CreatedAt DATETIME2 NOT NULL,
+	UpdatedAt DATETIME2 NOT NULL,
+	IsUpdated BIT NOT NULL,
+	IsDeleted BIT NOT NULL,
+	FOREIGN KEY (UsuarioID) REFERENCES [Usuarios](UsuarioID)
+);
+
+CREATE TABLE [Solicitud_Auditoria](
+	AuditoriaID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	PublicID UNIQUEIDENTIFIER NOT NULL DEFAULT NEWSEQUENTIALID(),
+	SolicitudID INT NOT NULL UNIQUE,
+	UsuarioEliminaID INT NOT NULL,
+	MotivoEliminacion NVARCHAR(255) NOT NULL,
+	DeletedAt DATETIME2 NOT NULL,
+	FOREIGN KEY (UsuarioEliminaID) REFERENCES [Usuarios](UsuarioID)
+);
+
+GO
+
+select * from Usuarios;
+select * from Solicitudes;
+select * from Solicitud_Auditoria;
