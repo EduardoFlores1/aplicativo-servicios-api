@@ -17,7 +17,7 @@ namespace Caja.Servicios.Application.DataBase.Solicitud.Commands.RegistrarSolici
             var usuarioID = await _dataBaseService.Usuarios
                 .Where(u => u.PublicID == request.PublicUsuarioID)
                 .Select(u => (int?)u.UsuarioID)
-                .FirstOrDefaultAsync() ?? throw new Exception("El usuario solicitante es inválido."); ;
+                .FirstOrDefaultAsync() ?? throw new InvalidOperationException("El usuario solicitante es inválido."); ;
 
             var fecha = DateTime.Now;
 

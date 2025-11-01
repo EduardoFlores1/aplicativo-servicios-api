@@ -1,11 +1,13 @@
 ﻿using Caja.Servicios.Application.DataBase.Auth.Queries.ObtenerUsuarioPorEmail;
+using Caja.Servicios.Application.Exception;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Caja.Servicios.Api.Controllers.Auth
+namespace Caja.Servicios.Api.Controllers.Usuario
 {
-    [Route("api/v1/auth")]
+    [Route("api/v1/usuarios")]
     [ApiController]
+    [TypeFilter(typeof(ExceptionManager))]
     public class ObtenerUsuarioPorEmailController : ControllerBase
     {
         private readonly IObtenerUsuarioPorEmailQuery _obtenerUsuarioPorEmailQuery;
@@ -14,6 +16,7 @@ namespace Caja.Servicios.Api.Controllers.Auth
             _obtenerUsuarioPorEmailQuery = obtenerUsuarioPorEmailQuery;
         }
 
+        [Tags("Usuarios")]
         [Authorize]
         [HttpGet("obtener-usuario-por-email")]
         public async Task<IActionResult> ObtenerUsuario(

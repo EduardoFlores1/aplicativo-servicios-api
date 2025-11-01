@@ -1,4 +1,5 @@
 ﻿using Caja.Servicios.Application.DataBase.Solicitud.Queries.ListarSolicitudesEliminadas;
+using Caja.Servicios.Application.Exception;
 using Caja.Servicios.Domain.Models.Paginacion;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +9,7 @@ namespace Caja.Servicios.Api.Controllers.Solicitud
     
     [Route("api/v1/solicitudes")]
     [ApiController]
+    [TypeFilter(typeof(ExceptionManager))]
     public class ListarSolicitudesEliminadasController : ControllerBase
     {
         private readonly IListarSolicitudesEliminadasQuery listarSolicitudesEliminadasQuery;
@@ -16,6 +18,7 @@ namespace Caja.Servicios.Api.Controllers.Solicitud
             this.listarSolicitudesEliminadasQuery = listarSolicitudesEliminadasQuery;
         }
 
+        [Tags("Solicitudes")]
         [Authorize]
         [HttpGet("eliminadas")]
         public async Task<IActionResult> ListarEliminadas(

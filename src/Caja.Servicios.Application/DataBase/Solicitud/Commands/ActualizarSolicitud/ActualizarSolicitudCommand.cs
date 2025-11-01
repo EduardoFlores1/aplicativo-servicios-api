@@ -14,7 +14,7 @@ namespace Caja.Servicios.Application.DataBase.Solicitud.Commands.ActualizarSolic
             
             var entity = await _dataBaseService.Solicitudes
                 .Where(s => s.PublicID == request.PublicID && !s.IsDeleted)
-                .FirstOrDefaultAsync() ?? throw new Exception("Solicitud no encontrada: " + request.PublicID);
+                .FirstOrDefaultAsync() ?? throw new InvalidOperationException("Solicitud no encontrada: " + request.PublicID);
 
             entity.DetalleSolicitud = request.DetalleSolicitud;
             entity.UpdatedAt = DateTime.Now;

@@ -19,7 +19,7 @@ namespace Caja.Servicios.Application.DataBase.Auth.Queries.ObtenerUsuarioPorEmai
                     Nombres = u.Nombres,
                     Email = u.Email
                 })
-                .FirstOrDefaultAsync() ?? throw new Exception("Usuario no encontrado: " + email); ;
+                .FirstOrDefaultAsync() ?? throw new InvalidOperationException("Usuario no encontrado: " + email); ;
 
             return response;
         }

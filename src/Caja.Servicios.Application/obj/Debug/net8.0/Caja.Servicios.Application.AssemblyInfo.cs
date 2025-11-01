@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Caja.Servicios.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+006b292b4df3bdeabc8deca5c733694f28a9f986")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+64489539da852384c43353b1d274b2213cfb3eec")]
 [assembly: System.Reflection.AssemblyProductAttribute("Caja.Servicios.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Caja.Servicios.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

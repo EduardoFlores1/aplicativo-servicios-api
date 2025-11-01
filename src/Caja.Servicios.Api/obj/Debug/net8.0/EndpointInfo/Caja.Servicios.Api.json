@@ -5,10 +5,72 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/v1/auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoguearUsuarioRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoguearUsuarioRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoguearUsuarioRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/registrar-usuario": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistrarUsuarioRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistrarUsuarioRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistrarUsuarioRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/v1/solicitudes/actualizar-solicitud": {
       "patch": {
         "tags": [
-          "ActualizarSolicitud"
+          "Solicitudes"
         ],
         "requestBody": {
           "content": {
@@ -39,7 +101,7 @@
     "/api/v1/solicitudes/eliminar-solicitud": {
       "delete": {
         "tags": [
-          "EliminarSolicitud"
+          "Solicitudes"
         ],
         "requestBody": {
           "content": {
@@ -70,7 +132,7 @@
     "/api/v1/solicitudes/eliminadas": {
       "get": {
         "tags": [
-          "ListarSolicitudesEliminadas"
+          "Solicitudes"
         ],
         "parameters": [
           {
@@ -97,26 +159,26 @@
         }
       }
     },
-    "/api/v1/auth/login": {
+    "/api/v1/solicitudes/registrar-solicitud": {
       "post": {
         "tags": [
-          "LoguearUsuario"
+          "Solicitudes"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LoguearUsuarioRequest"
+                "$ref": "#/components/schemas/RegistrarSolicitudRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/LoguearUsuarioRequest"
+                "$ref": "#/components/schemas/RegistrarSolicitudRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/LoguearUsuarioRequest"
+                "$ref": "#/components/schemas/RegistrarSolicitudRequest"
               }
             }
           }
@@ -128,10 +190,10 @@
         }
       }
     },
-    "/api/v1/auth/obtener-usuario-por-email": {
+    "/api/v1/usuarios/obtener-usuario-por-email": {
       "get": {
         "tags": [
-          "ObtenerUsuarioPorEmail"
+          "Usuarios"
         ],
         "parameters": [
           {
@@ -142,68 +204,6 @@
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/v1/solicitudes/registrar-solicitud": {
-      "post": {
-        "tags": [
-          "RegistrarSolicitud"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegistrarSolicitudRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegistrarSolicitudRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegistrarSolicitudRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/v1/auth/registrar-usuario": {
-      "post": {
-        "tags": [
-          "RegistrarUsuario"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegistrarUsuarioRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegistrarUsuarioRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegistrarUsuarioRequest"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "OK"

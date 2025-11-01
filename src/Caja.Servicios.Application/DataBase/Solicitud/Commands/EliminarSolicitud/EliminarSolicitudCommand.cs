@@ -16,7 +16,7 @@ namespace Caja.Servicios.Application.DataBase.Solicitud.Commands.EliminarSolicit
             var usuarioEliminaID = await _dataBaseService.Usuarios
                 .Where(u => u.PublicID == request.PublicUsuarioEliminaID)
                 .Select(u => (int?)u.UsuarioID)
-                .FirstOrDefaultAsync() ?? throw new Exception("No se pudo encontrar al usuario: " + request.PublicUsuarioEliminaID);
+                .FirstOrDefaultAsync() ?? throw new InvalidOperationException("No se pudo encontrar al usuario: " + request.PublicUsuarioEliminaID);
 
             var solicitudEntity = await _dataBaseService.Solicitudes
                 .FirstOrDefaultAsync(s => s.PublicID == request.PublicSolicitudID && !s.IsDeleted) 
