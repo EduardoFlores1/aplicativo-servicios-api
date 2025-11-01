@@ -6,4 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Caja.Servicios.Application\Caja.Servicios.Application.csproj" />
+    <ProjectReference Include="..\Caja.Servicios.Domain\Caja.Servicios.Domain.csproj" />
+    <ProjectReference Include="..\Caja.Servicios.Persistence\Caja.Servicios.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>
