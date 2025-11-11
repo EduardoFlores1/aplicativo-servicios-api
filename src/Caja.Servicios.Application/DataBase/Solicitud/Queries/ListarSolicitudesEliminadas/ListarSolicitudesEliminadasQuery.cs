@@ -24,7 +24,7 @@ namespace Caja.Servicios.Application.DataBase.Solicitud.Queries.ListarSolicitude
                                    { 
                                         PublicSolicitudID = solicitud.PublicID,
                                         PublicUsuarioSolicitanteID = usuarioSolicitante.PublicID,
-                                        PublicUsuarioEliminacionID = usuarioElimina.PublicID,
+                                        PublicUsuarioEliminaID = usuarioElimina.PublicID,
                                         DetalleSolicitud = solicitud.DetalleSolicitud,
                                         MotivoEliminacion = solicitudAuditoria.MotivoEliminacion,
                                         DeletedAt = solicitudAuditoria.DeletedAt

@@ -6,7 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace Caja.Servicios.Application.Features
+namespace Caja.Servicios.Application.Features.Jwt
 {
     public class JwtService : IJwtService
     {
@@ -34,7 +34,7 @@ namespace Caja.Servicios.Application.Features
                 issuer: _jwtSettings.Issuer,
                 audience: _jwtSettings.Audience,
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(60),
+                expires: DateTime.Now.AddMinutes(180),
                 signingCredentials: credentials
             );
 

@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Eduardo Flores\\Documents\\Proyectos backend\\Prueba Tecnica\\Caja.Solicitudes\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5D0DE707-0B6F-46E4-BF75-5603F96119E0}|src\\Caja.Servicios.Api\\Caja.Servicios.Api.csproj|c:\\users\\eduardo flores\\documents\\proyectos backend\\prueba tecnica\\caja.solicitudes\\src\\caja.servicios.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{5D0DE707-0B6F-46E4-BF75-5603F96119E0}|src\\Caja.Servicios.Api\\Caja.Servicios.Api.csproj|solutionrelative:src\\caja.servicios.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{5D0DE707-0B6F-46E4-BF75-5603F96119E0}|src\\Caja.Servicios.Api\\Caja.Servicios.Api.csproj|c:\\users\\eduardo flores\\documents\\proyectos backend\\prueba tecnica\\caja.solicitudes\\src\\caja.servicios.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5D0DE707-0B6F-46E4-BF75-5603F96119E0}|src\\Caja.Servicios.Api\\Caja.Servicios.Api.csproj|solutionrelative:src\\caja.servicios.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Eduardo Flores\\Documents\\Proyectos backend\\Prueba Tecnica\\Caja.Solicitudes\\src\\Caja.Servicios.Api\\appsettings.json",
-              "RelativeDocumentMoniker": "src\\Caja.Servicios.Api\\appsettings.json",
-              "ToolTip": "C:\\Users\\Eduardo Flores\\Documents\\Proyectos backend\\Prueba Tecnica\\Caja.Solicitudes\\src\\Caja.Servicios.Api\\appsettings.json",
-              "RelativeToolTip": "src\\Caja.Servicios.Api\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Eduardo Flores\\Documents\\Proyectos backend\\Prueba Tecnica\\Caja.Solicitudes\\src\\Caja.Servicios.Api\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "src\\Caja.Servicios.Api\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Eduardo Flores\\Documents\\Proyectos backend\\Prueba Tecnica\\Caja.Solicitudes\\src\\Caja.Servicios.Api\\Properties\\launchSettings.json",
+              "RelativeToolTip": "src\\Caja.Servicios.Api\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-01T20:05:52.139Z",
+              "WhenOpened": "2025-11-11T23:57:25.927Z",
               "EditorCaption": ""
             }
           ]

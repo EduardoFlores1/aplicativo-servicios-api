@@ -15,7 +15,7 @@ namespace Caja.Servicios.Application.DataBase.Solicitud.Commands.RegistrarSolici
         public async Task<RegistrarSolicitudResponse> ExecuteAsync(RegistrarSolicitudRequest request) {
 
             var usuarioID = await _dataBaseService.Usuarios
-                .Where(u => u.PublicID == request.PublicUsuarioID)
+                .Where(u => u.PublicID == request.PublicUsuarioRegistraID)
                 .Select(u => (int?)u.UsuarioID)
                 .FirstOrDefaultAsync() ?? throw new InvalidOperationException("El usuario solicitante es inválido."); ;
 
@@ -36,7 +36,7 @@ namespace Caja.Servicios.Application.DataBase.Solicitud.Commands.RegistrarSolici
 
             var response = new RegistrarSolicitudResponse
             {
-                PublicUsuarioID = request.PublicUsuarioID,
+                PublicUsuarioRegistraID = request.PublicUsuarioRegistraID,
                 DetalleSolicitud = request.DetalleSolicitud,
                 CreateAt = newSolicitud.CreatedAt
             };

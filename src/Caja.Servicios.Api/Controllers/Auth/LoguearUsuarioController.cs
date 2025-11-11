@@ -1,5 +1,7 @@
 ﻿using Caja.Servicios.Application.DataBase.Auth.Commands.LoguearUsuario;
 using Caja.Servicios.Application.Exception;
+using Caja.Servicios.Application.Features.BaseResponse;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Caja.Servicios.Api.Controllers.Auth
@@ -18,15 +20,32 @@ namespace Caja.Servicios.Api.Controllers.Auth
         [Tags("Auth")]
         [HttpPost("login")]
         public async Task<IActionResult> LoguearUsuario(
-            [FromBody] LoguearUsuarioRequest request)
+            [FromBody] LoguearUsuarioRequest request,
+            [FromServices] IValidator<LoguearUsuarioRequest> validator
+            )
         {
-            var response = await _loguearUsuarioCommand.ExecuteAsync(request);
-            if (response == null)
+
+            var validate = await validator.ValidateAsync(request);
+
+            if (!validate.IsValid)
             {
-                return StatusCode(StatusCodes.Status401Unauthorized, "Credenciales inválidas.");
+                return StatusCode(StatusCodes.Status400BadRequest,
+                        BaseResponseApi.Fail<string>(StatusCodes.Status400BadRequest, validate.Errors)
+                    );
             }
 
-            return StatusCode(StatusCodes.Status200OK, response);
+            var response = await _loguearUsuarioCommand.ExecuteAsync(request);
+
+            if (response == null)
+            {
+                return StatusCode(StatusCodes.Status401Unauthorized,
+                        BaseResponseApi.Fail<string>(StatusCodes.Status401Unauthorized, "Credenciales inválidas")
+                    );
+            }
+
+            return StatusCode(StatusCodes.Status200OK,
+                    BaseResponseApi.Ok<LoguearUsuarioResponse>(StatusCodes.Status200OK, response)
+                );
         }
     }
 }

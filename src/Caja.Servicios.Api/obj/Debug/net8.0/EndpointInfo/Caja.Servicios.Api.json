@@ -217,7 +217,7 @@
       "ActualizarSolicitudRequest": {
         "type": "object",
         "properties": {
-          "publicID": {
+          "publicSolicitudID": {
             "type": "string",
             "format": "uuid"
           },
@@ -263,7 +263,7 @@
       "RegistrarSolicitudRequest": {
         "type": "object",
         "properties": {
-          "publicUsuarioID": {
+          "publicUsuarioRegistraID": {
             "type": "string",
             "format": "uuid"
           },

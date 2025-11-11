@@ -2,7 +2,7 @@
 {
     public class RegistrarSolicitudResponse
     {
-        public Guid PublicUsuarioID { get; set; }
+        public Guid PublicUsuarioRegistraID { get; set; }
         public string DetalleSolicitud { get; set; }
         public DateTime CreateAt { get; set; }
     }
