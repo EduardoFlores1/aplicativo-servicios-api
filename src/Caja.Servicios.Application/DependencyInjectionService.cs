@@ -2,14 +2,15 @@
 using Caja.Servicios.Application.Configuration;
 using Caja.Servicios.Application.DataBase.Auth.Commands.LoguearUsuario;
 using Caja.Servicios.Application.DataBase.Auth.Commands.RegistrarUsuario;
-using Caja.Servicios.Application.DataBase.Auth.Queries.ObtenerUsuarioPorEmail;
 using Caja.Servicios.Application.DataBase.Solicitud.Commands.ActualizarSolicitud;
 using Caja.Servicios.Application.DataBase.Solicitud.Commands.EliminarSolicitud;
 using Caja.Servicios.Application.DataBase.Solicitud.Commands.RegistrarSolicitud;
 using Caja.Servicios.Application.DataBase.Solicitud.Queries.ListarSolicitudesEliminadas;
-using Caja.Servicios.Application.Features;
-using Caja.Servicios.Domain.Models.Jwt;
-using Microsoft.Extensions.Configuration;
+using Caja.Servicios.Application.DataBase.Usuario.Queries.ObtenerUsuarioPorEmail;
+using Caja.Servicios.Application.Features.Jwt;
+using Caja.Servicios.Application.Validations.Auth;
+using Caja.Servicios.Application.Validations.Solicitud;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Caja.Servicios.Application
@@ -34,13 +35,17 @@ namespace Caja.Servicios.Application
             services.AddTransient<IEliminarSolicitudCommand, EliminarSolicitudCommand>();
             services.AddTransient<IListarSolicitudesEliminadasQuery, ListarSolicitudesEliminadasQuery>();
 
-            //auth
-
-            
+            // Auth
 
             services.AddScoped<IJwtService, JwtService>();
-
             services.AddTransient<ILoguearUsuarioCommand, LoguearUsuarioCommand>();
+
+            // Validaciones
+
+            services.AddScoped<IValidator<LoguearUsuarioRequest>, LoguearUsuarioValidator>();
+            services.AddScoped<IValidator<RegistrarUsuarioRequest>, RegistrarUsuarioValidator>();
+            services.AddScoped<IValidator<ActualizarSolicitudRequest>, ActualizarSolicitudValidator>();
+            services.AddScoped<IValidator<RegistrarSolicitudRequest>, RegistrarSolicitudValidator>();
 
             return services;
         }

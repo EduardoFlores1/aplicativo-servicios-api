@@ -1,6 +1,1 @@
 @Caja.Servicios.Api_HostAddress = http://localhost:5285
-
-GET {{Caja.Servicios.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

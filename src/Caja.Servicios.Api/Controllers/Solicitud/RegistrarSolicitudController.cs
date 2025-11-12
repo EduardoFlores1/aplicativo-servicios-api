@@ -1,5 +1,7 @@
 ﻿using Caja.Servicios.Application.DataBase.Solicitud.Commands.RegistrarSolicitud;
 using Caja.Servicios.Application.Exception;
+using Caja.Servicios.Application.Features.BaseResponse;
+using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,10 +23,25 @@ namespace Caja.Servicios.Api.Controllers.Solicitud
         [Authorize]
         [HttpPost("registrar-solicitud")]
         public async Task<IActionResult> RegistrarSolicitud(
-            [FromBody] RegistrarSolicitudRequest request)
+            [FromBody] RegistrarSolicitudRequest request,
+            [FromServices] IValidator<RegistrarSolicitudRequest> validator
+            )
         {
+
+            var validate = await validator.ValidateAsync(request);
+
+            if (!validate.IsValid)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest,
+                        BaseResponseApi.Fail<string>(StatusCodes.Status400BadRequest, validate.Errors)
+                    );
+            }
+
             var data = await _registrarSolicitudCommand.ExecuteAsync(request);
-            return StatusCode(StatusCodes.Status201Created, data);
+
+            return StatusCode(StatusCodes.Status201Created,
+                    BaseResponseApi.Ok<RegistrarSolicitudResponse>(StatusCodes.Status201Created, data)
+                );
         }
     }
 }

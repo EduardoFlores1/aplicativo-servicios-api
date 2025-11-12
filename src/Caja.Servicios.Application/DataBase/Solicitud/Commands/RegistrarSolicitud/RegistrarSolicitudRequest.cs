@@ -2,7 +2,6 @@
 {
     public class RegistrarSolicitudRequest
     {
-        public Guid PublicUsuarioID { get; set; }
         public string DetalleSolicitud { get; set; }
     }
 }

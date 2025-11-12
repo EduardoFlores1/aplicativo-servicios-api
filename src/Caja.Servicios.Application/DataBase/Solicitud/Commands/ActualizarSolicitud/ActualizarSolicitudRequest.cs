@@ -2,7 +2,7 @@
 {
     public class ActualizarSolicitudRequest
     {
-        public Guid PublicID { get; set; }
+        public Guid PublicSolicitudID { get; set; }
         public string DetalleSolicitud { get; set; }
     }
 }

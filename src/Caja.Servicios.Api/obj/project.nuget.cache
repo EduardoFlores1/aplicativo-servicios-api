@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "GFvt4BVXxwQ=",
+  "dgSpecHash": "ayItd+152YE=",
   "success": true,
   "projectFilePath": "C:\\Users\\Eduardo Flores\\Documents\\Proyectos backend\\Prueba Tecnica\\Caja.Solicitudes\\src\\Caja.Servicios.Api\\Caja.Servicios.Api.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\Eduardo Flores\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Eduardo Flores\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\Eduardo Flores\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
+    "C:\\Users\\Eduardo Flores\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512",
     "C:\\Users\\Eduardo Flores\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Eduardo Flores\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.21\\microsoft.aspnetcore.authentication.jwtbearer.8.0.21.nupkg.sha512",
     "C:\\Users\\Eduardo Flores\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.3.0\\microsoft.aspnetcore.http.abstractions.2.3.0.nupkg.sha512",
