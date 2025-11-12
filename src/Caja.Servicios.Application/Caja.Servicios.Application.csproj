@@ -18,4 +18,9 @@
     <ProjectReference Include="..\Caja.Servicios.Domain\Caja.Servicios.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DataBase\Auth\Queries\" />
+    <Folder Include="DataBase\Usuario\Commands\" />
+  </ItemGroup>
+
 </Project>

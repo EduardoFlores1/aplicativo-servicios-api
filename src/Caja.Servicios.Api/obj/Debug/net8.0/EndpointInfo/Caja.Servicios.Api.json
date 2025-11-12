@@ -235,10 +235,6 @@
             "type": "string",
             "format": "uuid"
           },
-          "publicUsuarioEliminaID": {
-            "type": "string",
-            "format": "uuid"
-          },
           "motivoEliminacion": {
             "type": "string",
             "nullable": true
@@ -263,10 +259,6 @@
       "RegistrarSolicitudRequest": {
         "type": "object",
         "properties": {
-          "publicUsuarioRegistraID": {
-            "type": "string",
-            "format": "uuid"
-          },
           "detalleSolicitud": {
             "type": "string",
             "nullable": true

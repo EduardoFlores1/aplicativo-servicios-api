@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Caja.Servicios.Persistence")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b9463693ea6222d0dec9631670686579cf211691")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+372147c235b4c962e1a41e75d93227d758865440")]
 [assembly: System.Reflection.AssemblyProductAttribute("Caja.Servicios.Persistence")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Caja.Servicios.Persistence")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

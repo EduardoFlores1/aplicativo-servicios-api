@@ -10,11 +10,17 @@ builder.Services.Configure<JwtSettings>(
                 builder.Configuration.GetSection(JwtSettings.Seccion)
             );
 
-//injeccion
+// injeccion
 builder.Services
     .AddWebApi()
     .AddAplication()
     .AddPersistence(builder.Configuration);
+
+// auth jwt
+builder.Services.AddAutenticationPersonalizado(builder.Configuration);
+builder.Services.AddAuthorization();
+
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddControllers();
 
@@ -22,21 +28,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// auth jwt
-builder.Services.AddAutenticationPersonalizado(builder.Configuration);
-builder.Services.AddAuthorization();
-
 var app = builder.Build();
-
-app.MapControllers();
-
-app.MapSwagger("/openapi/{documentName}.json");
-app.MapScalarApiReference();
 
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+
+app.MapControllers();
+
+app.MapSwagger("/openapi/{documentName}.json");
+app.MapScalarApiReference();
 
 app.Run();
 

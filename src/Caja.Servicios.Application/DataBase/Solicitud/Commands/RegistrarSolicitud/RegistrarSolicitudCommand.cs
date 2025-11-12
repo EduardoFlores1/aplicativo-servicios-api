@@ -1,4 +1,5 @@
-﻿using Caja.Servicios.Domain.Entities.Solicitud;
+﻿using Caja.Servicios.Application.Features.Jwt;
+using Caja.Servicios.Domain.Entities.Solicitud;
 using Microsoft.EntityFrameworkCore;
 
 namespace Caja.Servicios.Application.DataBase.Solicitud.Commands.RegistrarSolicitud
@@ -6,18 +7,30 @@ namespace Caja.Servicios.Application.DataBase.Solicitud.Commands.RegistrarSolici
     public class RegistrarSolicitudCommand: IRegistrarSolicitudCommand
     {
         private readonly IDataBaseService _dataBaseService;
+        private readonly IJwtService _jwtService;
 
-        public RegistrarSolicitudCommand(IDataBaseService dataBaseService)
+        public RegistrarSolicitudCommand(
+            IDataBaseService dataBaseService,
+            IJwtService jwtService)
         {
             _dataBaseService = dataBaseService;
+            _jwtService = jwtService;
         }
 
         public async Task<RegistrarSolicitudResponse> ExecuteAsync(RegistrarSolicitudRequest request) {
 
+            
+
+            var publicUsuarioIDJWT = _jwtService.ObtenerPublicIdByToken();
+
+            if (publicUsuarioIDJWT == Guid.Empty) { 
+                throw new InvalidOperationException("Claim sub no disponible");
+            }
+
             var usuarioID = await _dataBaseService.Usuarios
-                .Where(u => u.PublicID == request.PublicUsuarioRegistraID)
+                .Where(u => u.PublicID == publicUsuarioIDJWT)
                 .Select(u => (int?)u.UsuarioID)
-                .FirstOrDefaultAsync() ?? throw new InvalidOperationException("El usuario solicitante es inválido."); ;
+                .FirstOrDefaultAsync() ?? throw new InvalidOperationException("El usuario solicitante es inválido.");
 
             var fecha = DateTime.Now;
 
@@ -36,7 +49,7 @@ namespace Caja.Servicios.Application.DataBase.Solicitud.Commands.RegistrarSolici
 
             var response = new RegistrarSolicitudResponse
             {
-                PublicUsuarioRegistraID = request.PublicUsuarioRegistraID,
+                PublicUsuarioRegistraID = publicUsuarioIDJWT,
                 DetalleSolicitud = request.DetalleSolicitud,
                 CreateAt = newSolicitud.CreatedAt
             };

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Caja.Servicios.Application.DataBase.Auth.Queries.ObtenerUsuarioPorEmail
+namespace Caja.Servicios.Application.DataBase.Usuario.Queries.ObtenerUsuarioPorEmail
 {
     public class ObtenerUsuarioPorEmailQuery: IObtenerUsuarioPorEmailQuery
     {

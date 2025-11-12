@@ -1,5 +1,6 @@
 ﻿using Caja.Servicios.Domain.Entities.Usuario;
 using Caja.Servicios.Domain.Models.Jwt;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -12,10 +13,12 @@ namespace Caja.Servicios.Application.Features.Jwt
     {
 
         private readonly JwtSettings _jwtSettings;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public JwtService(IOptions<JwtSettings> options)
+        public JwtService(IOptions<JwtSettings> options, IHttpContextAccessor httpContextAccessor)
         {
             _jwtSettings = options.Value;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public string GenerarToken(UsuarioEntity usuarioEntity)
@@ -39,6 +42,28 @@ namespace Caja.Servicios.Application.Features.Jwt
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        public Guid ObtenerPublicIdByToken()
+        {
+
+            try {
+
+                var user = _httpContextAccessor.HttpContext?.User;
+
+                var sub = user?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+                if (sub.IsNullOrEmpty()) return Guid.Empty;
+
+                Console.WriteLine("sub ->: " + sub);
+
+                return Guid.Parse(sub!);
+
+            } catch (System.Exception) { 
+                   
+                return Guid.Empty;
+            }
+
         }
     }
 }
