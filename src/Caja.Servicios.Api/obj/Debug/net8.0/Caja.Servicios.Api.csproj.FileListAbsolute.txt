@@ -181,3 +181,4 @@ C:\Users\Eduardo Flores\Documents\Proyectos backend\Prueba Tecnica\Caja.Solicitu
 C:\Users\Eduardo Flores\Documents\Proyectos backend\Prueba Tecnica\Caja.Solicitudes\src\Caja.Servicios.Api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Eduardo Flores\Documents\Proyectos backend\Prueba Tecnica\Caja.Solicitudes\src\Caja.Servicios.Api\bin\Debug\net8.0\BCrypt.Net-Next.dll
 C:\Users\Eduardo Flores\Documents\Proyectos backend\Prueba Tecnica\Caja.Solicitudes\src\Caja.Servicios.Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.Annotations.dll
+C:\Users\Eduardo Flores\Documents\Proyectos backend\Prueba Tecnica\Caja.Solicitudes\src\Caja.Servicios.Api\bin\Debug\net8.0\FluentValidation.dll

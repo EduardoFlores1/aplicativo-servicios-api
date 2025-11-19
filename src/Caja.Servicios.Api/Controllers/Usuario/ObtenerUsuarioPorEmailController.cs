@@ -1,5 +1,6 @@
-﻿using Caja.Servicios.Application.DataBase.Auth.Queries.ObtenerUsuarioPorEmail;
+﻿using Caja.Servicios.Application.DataBase.Usuario.Queries.ObtenerUsuarioPorEmail;
 using Caja.Servicios.Application.Exception;
+using Caja.Servicios.Application.Features.BaseResponse;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,7 +24,9 @@ namespace Caja.Servicios.Api.Controllers.Usuario
             [FromQuery] string email)
         {
             var data = await _obtenerUsuarioPorEmailQuery.ExecuteAsync(email);
-            return StatusCode(StatusCodes.Status200OK, data);
+            return StatusCode(StatusCodes.Status200OK,
+                    BaseResponseApi.Ok<ObtenerUsuarioPorEmailResponse>(StatusCodes.Status200OK, data)
+                );
         }
     }
 }

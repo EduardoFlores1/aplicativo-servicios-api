@@ -1,5 +1,6 @@
 ﻿using Caja.Servicios.Application.DataBase.Solicitud.Queries.ListarSolicitudesEliminadas;
 using Caja.Servicios.Application.Exception;
+using Caja.Servicios.Application.Features.BaseResponse;
 using Caja.Servicios.Domain.Models.Paginacion;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -26,7 +27,9 @@ namespace Caja.Servicios.Api.Controllers.Solicitud
             
             var data = await listarSolicitudesEliminadasQuery.ExecuteAsync(paginacionParams);
 
-            return StatusCode(StatusCodes.Status200OK, data);
+            return StatusCode(StatusCodes.Status200OK,
+                    BaseResponseApi.Ok<PaginadoResponse<ListarSolicitudesEliminadasResponse>>(StatusCodes.Status200OK, data)
+                );
 
 
         }

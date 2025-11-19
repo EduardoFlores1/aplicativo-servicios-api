@@ -13,8 +13,10 @@ namespace Caja.Servicios.Application.DataBase.Solicitud.Commands.ActualizarSolic
         public async Task<ActualizarSolicitudResponse> ExecuteAsync(ActualizarSolicitudRequest request) { 
             
             var entity = await _dataBaseService.Solicitudes
-                .Where(s => s.PublicID == request.PublicID && !s.IsDeleted)
-                .FirstOrDefaultAsync() ?? throw new InvalidOperationException("Solicitud no encontrada: " + request.PublicID);
+                .Where(s => s.PublicID == request.PublicSolicitudID)
+                .FirstOrDefaultAsync() ?? throw new InvalidOperationException("Solicitud no encontrada: " + request.PublicSolicitudID);
+
+            if (entity.IsDeleted) throw new InvalidOperationException("La solicitud ya no está disponible para modificar");
 
             entity.DetalleSolicitud = request.DetalleSolicitud;
             entity.UpdatedAt = DateTime.Now;
@@ -24,7 +26,7 @@ namespace Caja.Servicios.Application.DataBase.Solicitud.Commands.ActualizarSolic
 
             var response = new ActualizarSolicitudResponse
             {
-                PublicID = entity.PublicID,
+                PublicSolicitudID = entity.PublicID,
                 DetalleSolicitud = entity.DetalleSolicitud,
                 UpdatedAt = entity.UpdatedAt
             };

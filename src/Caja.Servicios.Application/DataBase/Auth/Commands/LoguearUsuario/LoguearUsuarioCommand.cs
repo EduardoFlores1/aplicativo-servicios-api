@@ -1,4 +1,4 @@
-﻿using Caja.Servicios.Application.Features;
+﻿using Caja.Servicios.Application.Features.Jwt;
 using Microsoft.EntityFrameworkCore;
 
 namespace Caja.Servicios.Application.DataBase.Auth.Commands.LoguearUsuario
